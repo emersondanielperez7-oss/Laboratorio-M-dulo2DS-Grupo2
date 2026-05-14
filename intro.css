@@ -1,10 +1,5 @@
-*{
-    transform:scale(1.05);
-    background:white;
-}
-
 @keyframes fadeUp{
-
+    
     from{
         opacity:0;
         transform:translateY(40px);
@@ -36,6 +31,10 @@ CONTENIDO PRINCIPAL
     font-size:55px;
 }
 
+/* =========================
+MOSTRAR Y OCULTAR
+========================= */
+
 .hidden{
     display:none;
 }
@@ -56,28 +55,7 @@ CONTENIDO PRINCIPAL
     }
 }
 
-/* =========================
-RESPONSIVE
-========================= */
 
-@media(max-width:768px){
-
-    .intro-content h1{
-        font-size:38px;
-    }
-
-    .intro-content p{
-        font-size:16px;
-    }
-
-    .chess-icon{
-        font-size:65px;
-    }
-}
-
-/* =========================
-PIEZA SIENDO TUMBADA
-========================= */
 
 .piece-fall{
     animation:pieceFall 1s forwards ease-in-out;
@@ -98,4 +76,26 @@ PIEZA SIENDO TUMBADA
         transform:rotate(90deg) translateX(120px) scale(0.8);
         opacity:0;
     }
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .intro-content h1{
+        font-size:38px;
+        margin-bottom:15px;
+        color:white;
+    }
+
+    .intro-content p{
+        font-size:16px;
+    }
+
+    .chess-icon{
+        font-size:55px;
+    }
+
 }

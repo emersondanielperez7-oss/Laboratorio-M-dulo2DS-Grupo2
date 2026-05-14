@@ -8,10 +8,8 @@ const pieza = document.querySelector('.chess-icon');
 
 boton.addEventListener('click', () => {
 
-    // ANIMACIÓN DE PIEZA SIENDO TUMBADA
     pieza.classList.add('piece-fall');
 
-    // DESAPARECER INTRO
     setTimeout(() => {
 
         intro.style.opacity = '0';
@@ -20,7 +18,6 @@ boton.addEventListener('click', () => {
 
     }, 600);
 
-    // MOSTRAR CONTENIDO PRINCIPAL
     setTimeout(() => {
 
         intro.style.display = 'none';
