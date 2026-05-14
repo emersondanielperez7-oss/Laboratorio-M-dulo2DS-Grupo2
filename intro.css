@@ -1,0 +1,102 @@
+*{
+    transform:scale(1.05);
+    background:white;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0px);
+    }
+}
+
+/* =========================
+CONTENIDO PRINCIPAL
+========================= */
+
+.main-content{
+    display:none;
+    padding:40px;
+    min-height:100vh;
+    background:#111;
+}
+
+.main-content header{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.main-content h1{
+    color:gold;
+    font-size:55px;
+}
+
+.hidden{
+    display:none;
+}
+
+.show{
+    display:block;
+    animation:fadeMain 1s ease;
+}
+
+@keyframes fadeMain{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .intro-content h1{
+        font-size:38px;
+    }
+
+    .intro-content p{
+        font-size:16px;
+    }
+
+    .chess-icon{
+        font-size:65px;
+    }
+}
+
+/* =========================
+PIEZA SIENDO TUMBADA
+========================= */
+
+.piece-fall{
+    animation:pieceFall 1s forwards ease-in-out;
+}
+
+@keyframes pieceFall{
+
+    0%{
+        transform:rotate(0deg) translateY(0px);
+        opacity:1;
+    }
+
+    40%{
+        transform:rotate(-25deg) translateX(-10px);
+    }
+
+    100%{
+        transform:rotate(90deg) translateX(120px) scale(0.8);
+        opacity:0;
+    }
+}
