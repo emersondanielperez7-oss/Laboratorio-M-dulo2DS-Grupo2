@@ -1,36 +1,342 @@
-<!DOCTYPE html>
-<html lang="es">
- <link rel="stylesheet" href="style.css">
- <header id="mi encabezado">
+<!DOCTYPE html> <!-- Indica que el documento está escrito en HTML5 -->
+<html lang="es"> <!-- Define el idioma de la página -->
 
-    <title>Reglamento</title>
-    <nav>
-        <li>><a href=""></a></li>
-        <li></li>
-        <li></li>
+<head>
 
-    </nav>
+    <!-- Permite usar caracteres especiales y tildes -->
+    <meta charset="UTF-8">
 
-<h1>Mejores jugadores
-    
-</h1>
-<p> </p>
- </header>
- <body>
+    <!-- Hace que la página sea adaptable a celulares y tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <main>
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>Grandes Jugadores del Ajedrez</title>
 
-        <section class="contenido">
-            <h2><span style="background-color: rgb(255, 205, 242);";>Leyes del ajedrez</span>
-            <tr><td><hr>
-            </hr></h2>
-            </td>
-            </tr>
-            
-            <p>Reglas basicas del ajedrez:</p>
-            <p></p>
+    <!-- Conecta el archivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
 
-        </section>
-    </main>
- </body>
+</head>
+
+<body>
+
+    <!-- ================= ENCABEZADO ================= -->
+    <header id="mi-encabezado">
+
+        <!-- Menú de navegación -->
+        <nav>
+
+            <!-- Lista del menú -->
+            <ul>
+
+                <!-- Enlace hacia la página principal -->
+                <li><a href="index.html">Inicio</a></li>
+
+                <!-- Enlace hacia la historia del ajedrez -->
+                <li><a href="historia.html">Historia</a></li>
+
+                <!-- Enlace hacia cómo jugar -->
+                <li><a href="JugarChess.html">Cómo jugar</a></li>
+
+                <!-- Enlace hacia campeones -->
+                <li><a href="campeones.html">Campeones</a></li>
+
+                <!-- Enlace hacia información extra -->
+                <li><a href="about.html">About</a></li>
+
+            </ul>
+        </nav>
+
+        <!-- Contenido principal del encabezado -->
+        <div class="contenido-header">
+
+            <!-- Título principal -->
+            <h1>Los Mejores Jugadores de Ajedrez</h1>
+
+            <!-- Descripción principal -->
+            <p>
+                Conoce a las leyendas del ajedrez, los campeones mundiales
+                y los jugadores más dominantes de la historia.
+            </p>
+
+        </div>
+
+    </header>
+
+    <!-- ================= INTRODUCCIÓN ================= -->
+    <section id="introduccion">
+
+        <!-- Título de la sección -->
+        <h2>Historia de los Campeones del Mundo</h2>
+
+        <!-- Primer párrafo informativo -->
+        <p>
+            El ajedrez es uno de los juegos más antiguos e inteligentes del mundo.
+            A lo largo de la historia han existido jugadores extraordinarios que
+            revolucionaron la manera de jugar este deporte mental.
+        </p>
+
+        <!-- Segundo párrafo informativo -->
+        <p>
+            Desde los primeros campeones mundiales hasta las estrellas modernas,
+            cada generación ha dejado su huella con partidas inolvidables,
+            títulos internacionales y récords impresionantes.
+        </p>
+
+    </section>
+
+    <!-- ================= CAMPEONES HISTÓRICOS ================= -->
+    <section id="campeones-historicos">
+
+        <!-- Título de la sección -->
+        <h2>Grandes Leyendas del Ajedrez</h2>
+
+        <!-- Información de Garry Kasparov -->
+        <article class="jugador">
+
+            <!-- Nombre del jugador -->
+            <h3>Garry Kasparov</h3>
+
+            <!-- Descripción -->
+            <p>
+                Considerado uno de los mejores jugadores de todos los tiempos.
+                Fue campeón mundial desde 1985 hasta el año 2000.
+            </p>
+
+            <!-- Lista de logros -->
+            <ul>
+                <li>Campeón Mundial de Ajedrez</li>
+                <li>Récord histórico de rating Elo</li>
+                <li>Ganador de múltiples torneos</li>
+            </ul>
+
+        </article>
+
+        <!-- Información de Bobby Fischer -->
+        <article class="jugador">
+
+            <h3>Bobby Fischer</h3>
+
+            <p>
+                Legendario jugador estadounidense que ganó el campeonato mundial
+                en 1972.
+            </p>
+
+            <ul>
+                <li>Campeón Mundial</li>
+                <li>Ganador del Match del Siglo</li>
+                <li>Figura histórica del ajedrez</li>
+            </ul>
+
+        </article>
+
+        <!-- Información de Anatoly Karpov -->
+        <article class="jugador">
+
+            <h3>Anatoly Karpov</h3>
+
+            <p>
+                Gran maestro soviético reconocido por su estilo estratégico.
+            </p>
+
+            <ul>
+                <li>Campeón Mundial FIDE</li>
+                <li>Más de 160 torneos ganados</li>
+                <li>Rival histórico de Kasparov</li>
+            </ul>
+
+        </article>
+
+    </section>
+
+    <!-- ================= JUGADORES ACTUALES ================= -->
+    <section id="jugadores-actuales">
+
+        <!-- Título -->
+        <h2>Mejores Jugadores de la Actualidad</h2>
+
+        <!-- Información de Magnus Carlsen -->
+        <article class="jugador">
+
+            <h3>Magnus Carlsen</h3>
+
+            <p>
+                Jugador noruego considerado uno de los más dominantes de la era moderna.
+            </p>
+
+            <ul>
+                <li>Campeón Mundial</li>
+                <li>Campeón Blitz</li>
+                <li>Campeón Rapid</li>
+            </ul>
+
+        </article>
+
+        <!-- Información de Ding Liren -->
+        <article class="jugador">
+
+            <h3>Ding Liren</h3>
+
+            <p>
+                Gran maestro chino y campeón mundial reconocido por su precisión.
+            </p>
+
+            <ul>
+                <li>Campeón Mundial</li>
+                <li>Top mundial</li>
+                <li>Ganador de torneos internacionales</li>
+            </ul>
+
+        </article>
+
+        <!-- Información de Hikaru Nakamura -->
+        <article class="jugador">
+
+            <h3>Hikaru Nakamura</h3>
+
+            <p>
+                Maestro estadounidense famoso por sus partidas rápidas y contenido online.
+            </p>
+
+            <ul>
+                <li>Campeón Blitz</li>
+                <li>Especialista en Rapid</li>
+                <li>Creador de contenido</li>
+            </ul>
+
+        </article>
+
+    </section>
+
+    <!-- ================= TORNEOS IMPORTANTES ================= -->
+    <section id="torneos">
+
+        <!-- Título -->
+        <h2>Campeonatos Más Importantes</h2>
+
+        <!-- Primer torneo -->
+        <div class="torneo">
+
+            <h3>Campeonato Mundial de Ajedrez</h3>
+
+            <p>
+                Competencia más importante del ajedrez profesional.
+            </p>
+
+        </div>
+
+        <!-- Segundo torneo -->
+        <div class="torneo">
+
+            <h3>Chess Olympiad</h3>
+
+            <p>
+                Torneo internacional por equipos nacionales.
+            </p>
+
+        </div>
+
+        <!-- Tercer torneo -->
+        <div class="torneo">
+
+            <h3>Torneo de Candidatos</h3>
+
+            <p>
+                Decide quién enfrentará al campeón mundial.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= TABLA DE CAMPEONES ================= -->
+    <section id="tabla-campeones">
+
+        <!-- Título -->
+        <h2>Campeones Mundiales Destacados</h2>
+
+        <!-- Tabla de información -->
+        <table border="1">
+
+            <!-- Encabezado de la tabla -->
+            <thead>
+
+                <!-- Fila principal -->
+                <tr>
+
+                    <!-- Columnas -->
+                    <th>Jugador</th>
+                    <th>País</th>
+                    <th>Título</th>
+                    <th>Año</th>
+
+                </tr>
+
+            </thead>
+
+            <!-- Contenido de la tabla -->
+            <tbody>
+
+                <!-- Primera fila -->
+                <tr>
+                    <td>Wilhelm Steinitz</td>
+                    <td>Austria</td>
+                    <td>Primer Campeón Mundial</td>
+                    <td>1886</td>
+                </tr>
+
+                <!-- Segunda fila -->
+                <tr>
+                    <td>Bobby Fischer</td>
+                    <td>Estados Unidos</td>
+                    <td>Campeón Mundial</td>
+                    <td>1972</td>
+                </tr>
+
+                <!-- Tercera fila -->
+                <tr>
+                    <td>Garry Kasparov</td>
+                    <td>Rusia</td>
+                    <td>Campeón Mundial</td>
+                    <td>1985</td>
+                </tr>
+
+                <!-- Cuarta fila -->
+                <tr>
+                    <td>Magnus Carlsen</td>
+                    <td>Noruega</td>
+                    <td>Campeón Mundial</td>
+                    <td>2013</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- ================= FRASE FINAL ================= -->
+    <section id="frase-final">
+
+        <!-- Título -->
+        <h2>El Ajedrez es Arte e Inteligencia</h2>
+
+        <!-- Texto motivacional -->
+        <p>
+            Cada campeón dejó una huella única en la historia del ajedrez.
+        </p>
+
+    </section>
+
+    <!-- ================= PIE DE PÁGINA ================= -->
+    <footer>
+
+        <!-- Texto del footer -->
+        <p>
+            Página creada para aprender sobre la historia del ajedrez.
+        </p>
+
+    </footer>
+
+</body>
+
 </html>
