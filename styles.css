@@ -260,3 +260,24 @@ RESPONSIVE TABLA
     }
 
 }
+
+/* =========================
+TRANSICIÓN ENTRE PÁGINAS
+========================= */
+
+body {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+body.page-loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* cuando sales de la página */
+body.page-leave {
+    opacity: 0;
+    transform: translateY(-10px);
+}

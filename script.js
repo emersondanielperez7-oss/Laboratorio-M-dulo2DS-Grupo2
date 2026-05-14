@@ -1,3 +1,11 @@
+// =========================
+// ANIMACIÓN DE ENTRADA PÁGINA
+// =========================
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('page-loaded');
+});
+
 /* =========================
 SCRIPT.JS COMPLETO
 ========================= */
@@ -182,3 +190,26 @@ function mostrarToast(texto){
     }, 2500);
 
 }
+
+// =========================
+// TRANSICIÓN AL CAMBIAR DE PÁGINA
+// =========================
+
+document.querySelectorAll('a[href]').forEach(link => {
+
+    const url = link.getAttribute('href');
+
+    // evitar links externos o anclas
+    if(!url || url.startsWith('#') || url.startsWith('http')) return;
+
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        document.body.classList.add('page-leave');
+
+        setTimeout(() => {
+            window.location.href = url;
+        }, 400);
+    });
+
+});
