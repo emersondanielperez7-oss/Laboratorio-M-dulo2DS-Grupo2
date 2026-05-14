@@ -3,7 +3,12 @@
 // =========================
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.body.classList.add('page-loaded');
+    requestAnimationFrame(() => {
+        document.body.classList.add('page-loaded');
+    });
+
+    crearTablero();
+    iniciarPiezas();
 });
 
 /* =========================
@@ -192,15 +197,14 @@ function mostrarToast(texto){
 }
 
 // =========================
-// TRANSICIÓN AL CAMBIAR DE PÁGINA
+// TRANSICIÓN ENTRE PÁGINAS
 // =========================
 
 document.querySelectorAll('a[href]').forEach(link => {
 
     const url = link.getAttribute('href');
 
-    // evitar links externos o anclas
-    if(!url || url.startsWith('#') || url.startsWith('http')) return;
+    if (!url || url.startsWith('#') || url.startsWith('http')) return;
 
     link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -209,7 +213,7 @@ document.querySelectorAll('a[href]').forEach(link => {
 
         setTimeout(() => {
             window.location.href = url;
-        }, 400);
+        }, 500);
     });
 
 });

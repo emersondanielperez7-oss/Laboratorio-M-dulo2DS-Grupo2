@@ -262,22 +262,63 @@ RESPONSIVE TABLA
 }
 
 /* =========================
-TRANSICIÓN ENTRE PÁGINAS
+TRANSICIÓN SUAVE DE PÁGINAS
 ========================= */
 
 body {
     opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(8px);
+    filter: blur(2px);
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform, filter;
 }
 
 body.page-loaded {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
 }
 
-/* cuando sales de la página */
 body.page-leave {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-6px);
+    filter: blur(3px);
+}
+
+/* 🔥 EVITA “SALTOS RAROS” EN MÓVIL */
+@media (max-width: 768px) {
+    body {
+        transform: translateY(5px);
+    }
+}
+
+@media (max-width: 768px) {
+
+    main {
+        padding: 15px;
+    }
+
+    .contenido {
+        padding: 18px;
+    }
+
+    .navbar__links {
+        gap: 10px;
+    }
+
+    .navbar__links a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
 }
