@@ -1,131 +1,204 @@
 <!DOCTYPE html>
-<html lang="es"> 
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía de Ajedrez</title>
-    <style>
-        body { font-family: sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; }
-        header { border-bottom: 2px solid #444; margin-bottom: 20px; }
-        nav ul { list-style: none; padding: 0; display: flex; gap: 15px; }
-        section { margin-bottom: 30px; }
-        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
-        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        th { background-color: #f4f4f4; }
-        .nota { background-color: #fff9c4; padding: 10px; border-left: 5px solid #fbc02d; }
-    </style>
+    <title>Cómo jugar | Chess.byte</title>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-    <header>
-        <h1>Aprende a jugar Ajedrez</h1>
-        <p>Una guía completa para principiantes sobre el juego de reyes.</p>
-        <nav>
-            <ul>
-                <li><a href="#tablero">El Tablero</a></li>
-                <li><a href="#piezas">Las Piezas</a></li>
-                <li><a href="#movimientos">Movimientos Especiales</a></li>
-                <li><a href="#objetivo">Jaque Mate</a></li>
-            </ul>
-        </nav>
-    </header>
+<header id="mi-encabezado">
 
-    <main>
-        <!-- Introducción -->
-        <section id="introduccion">
-            <h2>¿Qué es el Ajedrez?</h2>
-            <p>El ajedrez es un juego de estrategia para dos personas sobre un tablero de 64 escaques. No interviene el azar; la victoria depende enteramente de la táctica y la planificación.</p>
-        </section>
+    <nav class="navbar">
 
-        <!-- El Tablero -->
-        <section id="tablero">
-            <h2>1. El Tablero y la Configuración</h2>
-            <p>El tablero debe colocarse de modo que cada jugador tenga una <strong>casilla blanca en su esquina inferior derecha</strong>.</p>
-            <ul>
-                <li><strong>Filas:</strong> Se numeran del 1 al 8.</li>
-                <li><strong>Columnas:</strong> Se identifican de la "a" a la "h".</li>
-            </ul>
-        </section>
+        <ul class="navbar__links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="jugarchess.html">Cómo jugar</a></li>
+            <li><a href="Reglamento.html">Reglamento</a></li>
+        </ul>
 
-        <!-- Las Piezas -->
-        <section id="piezas">
-            <h2>2. Las Piezas y sus Movimientos</h2>
-            <p>Cada pieza tiene una forma única de desplazarse por el tablero:</p>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Pieza</th>
-                        <th>Movimiento</th>
-                        <th>Valor Sugerido</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Peón</strong></td>
-                        <td>Avanza 1 casilla (2 en su primer movimiento). Captura en diagonal.</td>
-                        <td>1 punto</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Caballo</strong></td>
-                        <td>Se mueve en forma de "L". Es la única pieza que salta sobre otras.</td>
-                        <td>3 puntos</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Alfil</strong></td>
-                        <td>Se mueve en diagonal tantas casillas como quiera.</td>
-                        <td>3 puntos</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Torre</strong></td>
-                        <td>Se mueve en línea recta (horizontal o vertical).</td>
-                        <td>5 puntos</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Dama</strong></td>
-                        <td>Combina los movimientos de la torre y el alfil.</td>
-                        <td>9 puntos</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Rey</strong></td>
-                        <td>Se mueve una casilla en cualquier dirección.</td>
-                        <td>Infinito</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+    </nav>
 
-        <!-- Movimientos Especiales -->
-        <section id="movimientos">
-            <h2>3. Reglas Especiales</h2>
-            <article>
-                <h3>El Enroque</h3>
-                <p>Es el único movimiento donde mueves dos piezas a la vez (Rey y Torre). Sirve para proteger al Rey y activar la Torre.</p>
-            </article>
-            <article>
-                <h3>Captura al Paso</h3>
-                <p>Un movimiento especial del peón que ocurre inmediatamente después de que un peón oponente salte dos casillas desde su origen.</p>
-            </article>
-            <article>
-                <h3>Promoción</h3>
-                <p>Si un peón llega al otro extremo del tablero, debe transformarse en cualquier otra pieza (excepto un Rey o un peón).</p>
-            </article>
-        </section>
+    <h1>Aprende a jugar Ajedrez</h1>
+    <p>Una guía completa para principiantes sobre el juego de reyes.</p>
 
-        <!-- El Objetivo -->
-        <section id="objetivo">
-            <h2>4. El Final de la Partida</h2>
-            <p>El objetivo es dar <strong>Jaque Mate</strong>, lo que significa que el Rey oponente está bajo ataque y no tiene forma legal de escapar.</p>
-            <div class="nota">
-                <p><strong>Dato importante:</strong> Si un jugador no puede hacer ningún movimiento legal pero su Rey NO está en jaque, la partida termina en <strong>Tablas (Empate) por Ahogado</strong>.</p>
-            </div>
-        </section>
-    </main>
+</header>
 
-    <footer>
-        <hr>
-        <p>&copy; 2024 Guía de Ajedrez para Todos - "Gens una sumus"</p>
-    </footer>
+<main>
+
+    <!-- Introducción -->
+    <section class="contenido" id="introduccion">
+
+        <h2>¿Qué es el Ajedrez?</h2>
+
+        <p>
+            El ajedrez es un juego de estrategia para dos personas sobre un tablero de 64 escaques.
+            No interviene el azar; la victoria depende enteramente de la táctica y la planificación.
+        </p>
+
+    </section>
+
+    <!-- El Tablero -->
+    <section class="contenido" id="tablero">
+
+        <h2>1. El Tablero y la Configuración</h2>
+
+        <p>
+            El tablero debe colocarse de modo que cada jugador tenga una
+            <strong>casilla blanca en su esquina inferior derecha</strong>.
+        </p>
+
+        <ul>
+            <li><strong>Filas:</strong> Se numeran del 1 al 8.</li>
+            <li><strong>Columnas:</strong> Se identifican de la "a" a la "h".</li>
+        </ul>
+
+    </section>
+
+    <!-- Las Piezas -->
+    <section class="contenido" id="piezas">
+
+        <h2>2. Las Piezas y sus Movimientos</h2>
+
+        <p>
+            Cada pieza tiene una forma única de desplazarse por el tablero:
+        </p>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Pieza</th>
+                    <th>Movimiento</th>
+                    <th>Valor Sugerido</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td><strong>Peón ♙</strong></td>
+                    <td>Avanza 1 casilla (2 en su primer movimiento). Captura en diagonal.</td>
+                    <td>1 punto</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Caballo ♘</strong></td>
+                    <td>Se mueve en forma de "L". Es la única pieza que salta sobre otras.</td>
+                    <td>3 puntos</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Alfil ♗</strong></td>
+                    <td>Se mueve en diagonal tantas casillas como quiera.</td>
+                    <td>3 puntos</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Torre ♖</strong></td>
+                    <td>Se mueve en línea recta (horizontal o vertical).</td>
+                    <td>5 puntos</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Dama ♕</strong></td>
+                    <td>Combina los movimientos de la torre y el alfil.</td>
+                    <td>9 puntos</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Rey ♔</strong></td>
+                    <td>Se mueve una casilla en cualquier dirección.</td>
+                    <td>Infinito</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- Reglas especiales -->
+    <section class="contenido" id="movimientos">
+
+        <h2>3. Reglas Especiales</h2>
+
+        <article>
+
+            <h3>El Enroque</h3>
+
+            <p>
+                Es el único movimiento donde mueves dos piezas a la vez
+                (Rey y Torre). Sirve para proteger al Rey y activar la Torre.
+            </p>
+
+        </article>
+
+        <article>
+
+            <h3>Captura al Paso</h3>
+
+            <p>
+                Un movimiento especial del peón que ocurre inmediatamente después
+                de que un peón oponente salte dos casillas desde su origen.
+            </p>
+
+        </article>
+
+        <article>
+
+            <h3>Promoción</h3>
+
+            <p>
+                Si un peón llega al otro extremo del tablero,
+                debe transformarse en cualquier otra pieza
+                (excepto un Rey o un peón).
+            </p>
+
+        </article>
+
+    </section>
+
+    <!-- Objetivo -->
+    <section class="contenido" id="objetivo">
+
+        <h2>4. El Final de la Partida</h2>
+
+        <p>
+            El objetivo es dar <strong>Jaque Mate</strong>,
+            lo que significa que el Rey oponente está bajo ataque
+            y no tiene forma legal de escapar.
+        </p>
+
+        <div class="contenido">
+
+            <p>
+                <strong>Dato importante:</strong>
+                Si un jugador no puede hacer ningún movimiento legal
+                pero su Rey NO está en jaque,
+                la partida termina en
+                <strong>Tablas (Empate) por Ahogado</strong>.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <p>
+       Derechos reservados © 2026 Juan López
+    </p>
+
+</footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
-<!DOCTYPE html> <!-- Indica que el documento está escrito en HTML5 -->
-<html lang="es"> <!-- Define el idioma de la página -->
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
 
@@ -12,15 +12,17 @@
     <!-- Título que aparece en la pestaña del navegador -->
     <title>Grandes Jugadores del Ajedrez</title>
 
-    <!-- Conecta el archivo CSS externo -->
-    <link rel="stylesheet" href="style.css">
+    <!-- CSS CORREGIDO -->
+    <link rel="stylesheet" href="styles.css">
 
 </head>
 
 <body>
 
+    <!-- ================= ENCABEZADO ================= -->
     <header id="mi-encabezado">
 
+<<<<<<< HEAD
   <nav class="navbar">
 
         <ul class="navbar__links">
@@ -30,9 +32,32 @@
         </ul>
 
     </nav>      
+=======
+        <!-- Menú de navegación -->
+        <nav class="navbar">
 
+            <!-- Lista del menú -->
+            <ul class="navbar__links">
+
+                <li><a href="index.html">Inicio</a></li>
+
+                <li><a href="historia.html">Historia</a></li>
+
+                <li><a href="jugarchess.html">Cómo jugar</a></li>
+
+                <li><a href="campeones.html">Campeones</a></li>
+
+                <li><a href="about.html">About</a></li>
+
+            </ul>
+
+        </nav>
+>>>>>>> c1373df0965beb09d3a582a51fce22f3ee763378
+
+        <!-- Contenido principal del encabezado -->
         <div class="contenido-header">
 
+            <!-- Título principal -->
             <h1>Los Mejores Jugadores de Ajedrez</h1>
 
             <p>
@@ -45,11 +70,13 @@
     </header>
 
     <!-- ================= INTRODUCCIÓN ================= -->
-    <section id="introduccion">
+    <main>
+
+    <section class="contenido" id="introduccion">
 
         <!-- Título de la sección -->
         <h2>Historia de los Campeones del Mundo</h2>
-  
+
         <p>
             El ajedrez es uno de los juegos más antiguos e inteligentes del mundo.
             A lo largo de la historia han existido jugadores extraordinarios que
@@ -64,7 +91,7 @@
 
     </section>
 
-    <section id="campeones-historicos">
+    <section class="contenido" id="campeones-historicos">
 
         <h2>Grandes Leyendas del Ajedrez</h2>
 
@@ -103,6 +130,7 @@
 
         </article>
 
+        <!-- Información de Anatoly Karpov -->
         <article class="jugador">
 
             <h3>Anatoly Karpov</h3>
@@ -121,8 +149,10 @@
 
     </section>
 
-    <section id="jugadores-actuales">
+    <!-- ================= JUGADORES ACTUALES ================= -->
+    <section class="contenido" id="jugadores-actuales">
 
+        <!-- Título -->
         <h2>Mejores Jugadores de la Actualidad</h2>
 
         <!-- Información de Magnus Carlsen -->
@@ -142,6 +172,7 @@
 
         </article>
 
+        <!-- Información de Ding Liren -->
         <article class="jugador">
 
             <h3>Ding Liren</h3>
@@ -158,6 +189,7 @@
 
         </article>
 
+        <!-- Información de Hikaru Nakamura -->
         <article class="jugador">
 
             <h3>Hikaru Nakamura</h3>
@@ -176,13 +208,55 @@
 
     </section>
 
-    <section id="tabla-campeones">
+    <!-- ================= TORNEOS IMPORTANTES ================= -->
+    <section class="contenido" id="torneos">
+
+        <!-- Título -->
+        <h2>Campeonatos Más Importantes</h2>
+
+        <!-- Primer torneo -->
+        <div class="torneo">
+
+            <h3>Campeonato Mundial de Ajedrez</h3>
+
+            <p>
+                Competencia más importante del ajedrez profesional.
+            </p>
+
+        </div>
+
+        <!-- Segundo torneo -->
+        <div class="torneo">
+
+            <h3>Chess Olympiad</h3>
+
+            <p>
+                Torneo internacional por equipos nacionales.
+            </p>
+
+        </div>
+
+        <!-- Tercer torneo -->
+        <div class="torneo">
+
+            <h3>Torneo de Candidatos</h3>
+
+            <p>
+                Decide quién enfrentará al campeón mundial.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= TABLA DE CAMPEONES ================= -->
+    <section class="contenido" id="tabla-campeones">
 
         <!-- Título -->
         <h2>Campeones Mundiales Destacados</h2>
 
         <!-- Tabla de información -->
-        <table border="1">
+        <table>
 
             <!-- Encabezado de la tabla -->
             <thead>
@@ -242,18 +316,32 @@
     </section>
 
     <!-- ================= FRASE FINAL ================= -->
-    <section id="frase-final">
+    <section class="contenido" id="frase-final">
 
         <!-- Título -->
         <h2>El Ajedrez es Arte e Inteligencia</h2>
 
         <!-- Texto motivacional -->
         <p>
-            Cada campeón dejó una huella única en la historia del ajedrez, una
-            página creada para aprender sobre la historia del ajedrez.
+            Cada campeón dejó una huella única en la historia del ajedrez.
+        </p>
+
+    </section>
+
+    </main>
+
+    <!-- ================= PIE DE PÁGINA ================= -->
+    <footer class="footer">
+
+        <!-- Texto del footer -->
+        <p>
+            Página creada para aprender sobre la historia del ajedrez.
         </p>
 
     </footer>
+
+    <!-- JS CONECTADO -->
+    <script src="script.js"></script>
 
 </body>
 
