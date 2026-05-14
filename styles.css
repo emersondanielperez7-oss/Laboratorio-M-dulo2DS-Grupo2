@@ -208,3 +208,54 @@ footer{
     }
 
 }
+
+/* =========================
+TABLAS
+========================= */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+    overflow:hidden;
+    border-radius:12px;
+    background:#1b1b1b;
+}
+
+thead{
+    background:gold;
+    color:black;
+}
+
+th{
+    padding:15px;
+    text-align:left;
+    font-size:18px;
+}
+
+td{
+    padding:14px;
+    border-top:1px solid #333;
+}
+
+tbody tr{
+    transition:0.3s;
+}
+
+tbody tr:hover{
+    background:#2a2a2a;
+}
+
+/* =========================
+RESPONSIVE TABLA
+========================= */
+
+@media(max-width:768px){
+
+    table{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
+
+}
