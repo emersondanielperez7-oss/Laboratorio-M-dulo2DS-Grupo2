@@ -1,1015 +1,73 @@
-/* ============================================================
-   CHESS PAGE — style.css
-   Tema: Ajedrez clásico con estética refinada y oscura
-   Fuentes: 'Playfair Display' (display) + 'Crimson Text' (cuerpo)
-   Paleta: Negro marfil, dorado antiguo, crema, gris pizarra
-   ============================================================ */
-
-/* --- IMPORTACIÓN DE FUENTES DESDE GOOGLE FONTS ---
-   Cambia las fuentes aquí si quieres otra tipografía.
-   'Playfair Display' = elegante y serif, ideal para títulos de ajedrez.
-   'Crimson Text' = lectura cómoda en párrafos largos. */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
-
-/* --- VARIABLES GLOBALES (CSS Custom Properties) ---
-   Edita estos valores para cambiar toda la paleta de colores
-   y tamaños de fuente de la página al instante. */
-:root {
-  /* Colores principales */
-  --color-bg: #0d0d0d;           /* Fondo principal: negro profundo */
-  --color-bg-alt: #161616;       /* Fondo de secciones alternativas */
-  --color-surface: #1e1e1e;      /* Superficies de tarjetas y paneles */
-  --color-border: #2e2e2e;       /* Color de bordes sutiles */
-
-  /* Colores de acento */
-  --color-gold: #c9a84c;         /* Dorado antiguo — color dominante de acento */
-  --color-gold-light: #e8c96d;   /* Dorado claro para hovers y brillos */
-  --color-gold-dark: #8a6f2e;    /* Dorado oscuro para sombras */
-  --color-cream: #f0ead6;        /* Crema — textos claros y piezas blancas */
-  --color-slate: #8a8a8a;        /* Gris pizarra — texto secundario */
-
-  /* Colores del tablero */
-  --square-light: #f0d9b5;       /* Casilla clara del tablero */
-  --square-dark: #b58863;        /* Casilla oscura del tablero */
-  --square-highlight: #aaa23a;   /* Casilla resaltada (movimiento/selección) */
-
-  /* Tipografía */
-  --font-display: 'Playfair Display', Georgia, serif;  /* Fuente de títulos */
-  --font-body: 'Crimson Text', Georgia, serif;         /* Fuente de cuerpo */
-  --font-mono: 'Courier New', monospace;               /* Fuente monospace (coordenadas) */
-
-  /* Tamaños de fuente — escala tipográfica */
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1.125rem;    /* Base ligeramente grande para legibilidad serif */
-  --text-lg: 1.35rem;
-  --text-xl: 1.75rem;
-  --text-2xl: 2.5rem;
-  --text-3xl: 3.5rem;
-  --text-4xl: 5rem;
-
-  /* Espaciado y radios */
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 2rem;
-  --space-lg: 4rem;
-  --space-xl: 8rem;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
-
-  /* Transiciones */
-  --transition-fast: 150ms ease;        /* Hover rápido */
-  --transition-base: 300ms ease;        /* Transición normal */
-  --transition-slow: 600ms ease;        /* Entrada de elementos */
-
-  /* Sombras */
-  --shadow-gold: 0 0 20px rgba(201, 168, 76, 0.25);   /* Resplandor dorado */
-  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.6);       /* Sombra de tarjeta */
-  --shadow-piece: 2px 4px 8px rgba(0, 0, 0, 0.8);     /* Sombra de piezas */
-}
-
-/* --- RESET Y BASE ---
-   Elimina estilos por defecto del navegador para partir desde cero. */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;  /* Incluye padding y border en el ancho total */
-  margin: 0;
-  padding: 0;
-}
-
-/* --- ESTILOS DEL DOCUMENTO BASE ---
-   Cambia el scroll-behavior a 'auto' si no quieres desplazamiento suave. */
-html {
-  scroll-behavior: smooth;      /* Desplazamiento suave al hacer clic en anclas */
-  font-size: 16px;              /* Base del sistema rem — cámbiala para escalar todo */
-}
-
-/* --- CUERPO PRINCIPAL ---
-   Configura el fondo, la fuente y el color de texto predeterminados. */
-body {
-  background-color: var(--color-bg);
-  color: var(--color-cream);
-  font-family: var(--font-body);
-  font-size: var(--text-base);
-  line-height: 1.7;
-  min-height: 100vh;
-  overflow-x: hidden;          /* Evita scroll horizontal por elementos fuera de pantalla */
-
-  /* Patrón de tablero de ajedrez sutil en el fondo — puedes quitar esto si no lo quieres */
-  background-image:
-    linear-gradient(rgba(201, 168, 76, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201, 168, 76, 0.015) 1px, transparent 1px);
-  background-size: 60px 60px;   /* Tamaño de la cuadrícula de fondo — ajusta a gusto */
-}
-
-/* --- CURSOR PERSONALIZADO ---
-   El cursor tiene forma de pieza de ajedrez. Elimina estas reglas si prefieres el cursor normal. */
-body {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E♟%3C/text%3E%3C/svg%3E") 12 12, auto;
-}
-
-/* ============================================================
-   BARRA DE NAVEGACIÓN
-   ============================================================ */
-
-/* --- NAVBAR PRINCIPAL ---
-   Fija la barra arriba con efecto de vidrio oscuro (glassmorphism). */
-.navbar {
-  position: fixed;              /* Queda fija al hacer scroll */
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;                /* Por encima de todo el contenido */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.25rem var(--space-md);
-
-  /* Efecto glassmorphism oscuro */
-  background: rgba(13, 13, 13, 0.85);
-  backdrop-filter: blur(12px);  /* Desenfoque del fondo — reduce si causa lag */
-  border-bottom: 1px solid var(--color-border);
-  transition: background var(--transition-base);
-}
-
-/* Estado "scrolled" — se activa con JS cuando el usuario baja.
-   Hace el navbar más sólido al hacer scroll. */
-.navbar.scrolled {
-  background: rgba(13, 13, 13, 0.97);
-  border-bottom-color: var(--color-gold-dark);
-}
-
-/* --- LOGO / MARCA ---
-   El nombre del sitio en la esquina izquierda. */
-.navbar__logo {
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  font-weight: 900;
-  color: var(--color-gold);
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: color var(--transition-fast);
-}
-
-.navbar__logo:hover {
-  color: var(--color-gold-light);  /* Más brillante al pasar el cursor */
-}
-
-/* Emoji o símbolo antes del logo — cámbialo en el HTML */
-.navbar__logo-icon {
-  font-size: 1.5rem;
-  animation: floatPiece 3s ease-in-out infinite;  /* Animación de flotación */
-}
-
-/* --- ENLACES DE NAVEGACIÓN ---
-   Lista horizontal de links. */
-.navbar__links {
-  display: flex;
-  list-style: none;
-  gap: var(--space-md);
-  align-items: center;
-}
-
-/* Cada enlace individual */
-.navbar__links a {
-  color: var(--color-slate);
-  text-decoration: none;
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  position: relative;
-  transition: color var(--transition-fast);
-}
-
-/* Línea dorada bajo el link al hacer hover */
-.navbar__links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;                     /* Empieza en 0 */
-  height: 1px;
-  background: var(--color-gold);
-  transition: width var(--transition-base);
-}
-
-.navbar__links a:hover {
-  color: var(--color-cream);
-}
-
-.navbar__links a:hover::after {
-  width: 100%;                  /* Se expande al hacer hover */
-}
-
-/* Botón CTA en la navbar — diferente a los links normales */
-.navbar__cta {
-  background: var(--color-gold);
-  color: var(--color-bg) !important;
-  padding: 0.5rem 1.25rem;
-  border-radius: var(--radius-sm);
-  font-weight: 700 !important;
-  transition: background var(--transition-fast), transform var(--transition-fast) !important;
-}
-
-.navbar__cta:hover {
-  background: var(--color-gold-light) !important;
-  transform: translateY(-1px);
-}
-
-.navbar__cta::after {
-  display: none !important;    /* Sin línea inferior en el botón CTA */
-}
-
-/* ============================================================
-   SECCIÓN HERO (Portada principal)
-   ============================================================ */
-
-/* --- CONTENEDOR HERO ---
-   Ocupa toda la pantalla. Cambia 100vh a cualquier altura fija si lo prefieres. */
-.hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;    /* Dos columnas iguales */
-  align-items: center;
-  padding: var(--space-xl) var(--space-md);
-  padding-top: calc(var(--space-xl) + 80px);  /* Compensa la altura del navbar */
-  gap: var(--space-lg);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Decoración diagonal de fondo en el hero — quítala si prefieres fondo limpio */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 55%;
-  height: 100%;
-  background: linear-gradient(135deg, transparent 0%, rgba(201, 168, 76, 0.04) 100%);
-  pointer-events: none;           /* No interfiere con clicks */
-}
-
-/* --- CONTENIDO DE TEXTO DEL HERO ---
-   La columna izquierda con el título y descripción. */
-.hero__content {
-  position: relative;
-  z-index: 1;
-}
-
-/* Etiqueta pequeña encima del título principal */
-.hero__eyebrow {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--color-gold);
-  margin-bottom: var(--space-sm);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-/* Línea decorativa antes del eyebrow */
-.hero__eyebrow::before {
-  content: '';
-  display: inline-block;
-  width: 40px;          /* Cambia el largo de la línea aquí */
-  height: 1px;
-  background: var(--color-gold);
-}
-
-/* --- TÍTULO PRINCIPAL DEL HERO ---
-   Texto grande y llamativo. Ajusta font-size con las variables. */
-.hero__title {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, var(--text-4xl));  /* Responsivo automático */
-  font-weight: 900;
-  line-height: 1.0;
-  margin-bottom: var(--space-md);
-  color: var(--color-cream);
-}
-
-/* Parte del título en dorado — edita el span en el HTML */
-.hero__title .accent {
-  color: var(--color-gold);
-  font-style: italic;
-}
-
-/* --- DESCRIPCIÓN DEL HERO ---
-   Párrafo de introducción. */
-.hero__description {
-  font-size: var(--text-lg);
-  color: var(--color-slate);
-  margin-bottom: var(--space-lg);
-  max-width: 480px;
-  line-height: 1.8;
-}
-
-/* --- BOTONES DE ACCIÓN DEL HERO ---
-   Grupo de botones principales. */
-.hero__actions {
-  display: flex;
-  gap: var(--space-sm);
-  flex-wrap: wrap;
-}
-
-/* ============================================================
-   SISTEMA DE BOTONES
-   Incluye variantes: primario, secundario y de pieza (con símbolo)
-   ============================================================ */
-
-/* --- BOTÓN BASE ---
-   Estilos compartidos por todos los botones. */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.875rem 2rem;
-  font-family: var(--font-body);
-  font-size: var(--text-base);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  border: none;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;             /* Para el efecto de onda (ripple) */
-  transition:
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast),
-    background var(--transition-fast);
-  user-select: none;
-}
-
-/* Efecto hover: sube el botón ligeramente */
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-/* Efecto al hacer clic: baja el botón */
-.btn:active {
-  transform: translateY(0);
-}
-
-/* Onda de ripple que aparece al hacer clic — generada por JS */
-.btn__ripple {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
-  transform: scale(0);
-  animation: rippleExpand 500ms linear;
-  pointer-events: none;         /* No bloquea eventos del botón */
-}
-
-/* --- BOTÓN PRIMARIO (Dorado sólido) ---
-   Llama la atención, acción principal de la página. */
-.btn--primary {
-  background: var(--color-gold);
-  color: var(--color-bg);
-  box-shadow: 0 4px 16px rgba(201, 168, 76, 0.3);
-}
-
-.btn--primary:hover {
-  background: var(--color-gold-light);
-  box-shadow: var(--shadow-gold);
-}
-
-/* --- BOTÓN SECUNDARIO (Contorno dorado) ---
-   Acción secundaria, menos prominente. */
-.btn--secondary {
-  background: transparent;
-  color: var(--color-gold);
-  border: 1px solid var(--color-gold);
-}
-
-.btn--secondary:hover {
-  background: rgba(201, 168, 76, 0.1);
-  box-shadow: var(--shadow-gold);
-}
-
-/* --- BOTÓN FANTASMA (Solo texto) ---
-   Mínima jerarquía visual. */
-.btn--ghost {
-  background: transparent;
-  color: var(--color-cream);
-  border: 1px solid var(--color-border);
-}
-
-.btn--ghost:hover {
-  border-color: var(--color-gold);
-  color: var(--color-gold);
-}
-
-/* --- BOTONES DE PIEZA DE AJEDREZ ---
-   Botones especiales con símbolo Unicode de pieza de ajedrez.
-   Cambia el contenido del span .piece-btn__symbol en el HTML. */
-.piece-btn {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 1rem 1.5rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition:
-    background var(--transition-fast),
-    border-color var(--transition-fast),
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast);
-  font-family: var(--font-body);
-  color: var(--color-cream);
-  min-width: 90px;
-}
-
-.piece-btn:hover {
-  background: rgba(201, 168, 76, 0.08);
-  border-color: var(--color-gold);
-  transform: translateY(-4px) scale(1.05);  /* Levita al hacer hover */
-  box-shadow: var(--shadow-gold);
-}
-
-/* El símbolo Unicode de la pieza (♔ ♕ ♖ ♗ ♘ ♙) */
-.piece-btn__symbol {
-  font-size: 2.5rem;            /* Tamaño del símbolo — ajusta a gusto */
-  line-height: 1;
-  filter: drop-shadow(var(--shadow-piece));
-  transition: transform var(--transition-base);
-}
-
-.piece-btn:hover .piece-btn__symbol {
-  transform: rotate(-5deg) scale(1.1);    /* Rota ligeramente al hacer hover */
-}
-
-/* Nombre de la pieza bajo el símbolo */
-.piece-btn__label {
-  font-size: var(--text-xs);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-slate);
-  transition: color var(--transition-fast);
-}
-
-.piece-btn:hover .piece-btn__label {
-  color: var(--color-gold);
-}
-
-/* Pieza seleccionada/activa — se activa con JS */
-.piece-btn.active {
-  background: rgba(201, 168, 76, 0.15);
-  border-color: var(--color-gold);
-  box-shadow: var(--shadow-gold), inset 0 0 20px rgba(201, 168, 76, 0.05);
-}
-
-.piece-btn.active .piece-btn__label {
-  color: var(--color-gold);
-}
-
-/* ============================================================
-   TABLERO DE AJEDREZ DECORATIVO
-   Tablero interactivo de 8×8 generado por JS
-   ============================================================ */
-
-/* --- CONTENEDOR DEL TABLERO ---
-   La columna derecha del hero. */
-.hero__board-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-/* Resplandor de fondo detrás del tablero */
-.hero__board-container::before {
-  content: '';
-  position: absolute;
-  width: 120%;
-  height: 120%;
-  background: radial-gradient(ellipse, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-/* --- TABLERO PRINCIPAL ---
-   Grid de 8 columnas para las 64 casillas. */
-.chess-board {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);  /* 8 columnas iguales */
-  width: min(480px, 90vw);                /* Máximo 480px, responsivo */
-  height: min(480px, 90vw);
-  border: 3px solid var(--color-gold-dark);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  box-shadow:
-    var(--shadow-card),
-    0 0 60px rgba(201, 168, 76, 0.1);    /* Resplandor dorado exterior */
-  position: relative;
-}
-
-/* --- CASILLAS DEL TABLERO ---
-   Cada celda del tablero 8×8. */
-.chess-board__square {
-  aspect-ratio: 1;              /* Mantiene forma cuadrada */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: clamp(1.5rem, 4vw, 2.5rem);  /* Tamaño de piezas responsivo */
-  cursor: pointer;
-  transition:
-    filter var(--transition-fast),
-    transform var(--transition-fast);
-  position: relative;
-  user-select: none;
-}
-
-/* Casillas claras */
-.chess-board__square.light {
-  background-color: var(--square-light);
-}
-
-/* Casillas oscuras */
-.chess-board__square.dark {
-  background-color: var(--square-dark);
-}
-
-/* Casilla al hacer hover */
-.chess-board__square:hover {
-  filter: brightness(1.2);
-}
-
-/* Casilla seleccionada — clase añadida por JS */
-.chess-board__square.selected {
-  background-color: var(--square-highlight) !important;
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
-}
-
-/* Casilla de movimiento posible — clase añadida por JS */
-.chess-board__square.possible-move::after {
-  content: '';
-  position: absolute;
-  width: 35%;
-  height: 35%;
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 50%;            /* Punto circular indicando movimiento posible */
-}
-
-/* ============================================================
-   SECCIÓN DE PIEZAS (Galería / Selector)
-   ============================================================ */
-
-/* --- SECCIÓN GENERAL ---
-   Espaciado y fondo alternativo para secciones. */
-.section {
-  padding: var(--space-xl) var(--space-md);
-  max-width: 1200px;            /* Ancho máximo del contenido — ajusta aquí */
-  margin: 0 auto;
-}
-
-/* Sección con fondo alternativo (full-width) */
-.section--alt {
-  background: var(--color-bg-alt);
-  max-width: none;
-  padding-left: calc(50vw - 600px);   /* Centrado con padding proporcional */
-  padding-right: calc(50vw - 600px);
-}
-
-/* --- ENCABEZADO DE SECCIÓN ---
-   Título y subtítulo de cada bloque de contenido. */
-.section__header {
-  text-align: center;
-  margin-bottom: var(--space-lg);
-}
-
-/* Línea decorativa sobre el título de sección */
-.section__header::before {
-  content: '♟ ♟ ♟';           /* Cambia los símbolos aquí si lo deseas */
-  display: block;
-  color: var(--color-gold-dark);
-  font-size: var(--text-sm);
-  letter-spacing: 0.5em;
-  margin-bottom: var(--space-sm);
-}
-
-.section__title {
-  font-family: var(--font-display);
-  font-size: clamp(var(--text-2xl), 4vw, var(--text-3xl));
-  font-weight: 700;
-  color: var(--color-cream);
-  margin-bottom: 0.75rem;
-}
-
-.section__subtitle {
-  font-size: var(--text-lg);
-  color: var(--color-slate);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* --- GRID DE PIEZAS ---
-   Cuadrícula donde se muestran los botones de piezas. */
-.pieces-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  margin-top: var(--space-lg);
-}
-
-/* Panel de información que aparece al seleccionar una pieza */
-.piece-info-panel {
-  margin-top: var(--space-lg);
-  padding: var(--space-md);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  border-left: 4px solid var(--color-gold);  /* Acento izquierdo dorado */
-  display: none;               /* Oculto por defecto — JS lo muestra */
-  animation: fadeSlideUp 300ms ease forwards;
-}
-
-/* Panel visible (clase añadida por JS) */
-.piece-info-panel.visible {
-  display: block;
-}
-
-.piece-info-panel__name {
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  color: var(--color-gold);
-  margin-bottom: 0.5rem;
-}
-
-.piece-info-panel__symbol {
-  font-size: 4rem;
-  float: right;               /* Símbolo a la derecha */
-  margin-left: var(--space-sm);
-  filter: drop-shadow(var(--shadow-piece));
-}
-
-.piece-info-panel__description {
-  color: var(--color-slate);
-  line-height: 1.8;
-}
-
-.piece-info-panel__value {
-  display: inline-block;
-  margin-top: var(--space-sm);
-  padding: 0.25rem 0.75rem;
-  background: rgba(201, 168, 76, 0.15);
-  border: 1px solid var(--color-gold-dark);
-  border-radius: 999px;       /* Cápsula */
-  font-size: var(--text-xs);
-  color: var(--color-gold);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-/* ============================================================
-   TARJETAS DE CONTENIDO
-   Para artículos, historias, reglas, etc.
-   ============================================================ */
-
-/* --- GRID DE TARJETAS ---
-   Distribución automática de tarjetas. */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  /* Columnas adaptables */
-  gap: var(--space-md);
-}
-
-/* --- TARJETA INDIVIDUAL ---
-   Contenedor de cada tarjeta de contenido. */
-.card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-md);
-  position: relative;
-  overflow: hidden;
-  transition:
-    transform var(--transition-base),
-    border-color var(--transition-base),
-    box-shadow var(--transition-base);
-}
-
-/* Esquina decorativa en la tarjeta — simula patrón de tablero */
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, transparent 50%, rgba(201, 168, 76, 0.06) 50%);
-  pointer-events: none;
-}
-
-.card:hover {
-  transform: translateY(-6px);            /* Sube al hacer hover */
-  border-color: var(--color-gold-dark);
-  box-shadow: var(--shadow-card);
-}
-
-/* Icono/símbolo en la parte superior de la tarjeta */
-.card__icon {
-  font-size: 2.5rem;
-  margin-bottom: var(--space-sm);
-  display: block;
-}
-
-.card__title {
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  font-weight: 700;
-  color: var(--color-cream);
-  margin-bottom: 0.5rem;
-}
-
-.card__text {
-  color: var(--color-slate);
-  line-height: 1.7;
-  font-size: var(--text-base);
-}
-
-/* ============================================================
-   BARRA LATERAL DE ESTADÍSTICAS / CONTADOR
-   ============================================================ */
-
-/* Fila de estadísticas numéricas */
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--space-md);
-  padding: var(--space-lg) 0;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.stat {
-  text-align: center;
-}
-
-/* Número grande de la estadística */
-.stat__number {
-  font-family: var(--font-display);
-  font-size: var(--text-3xl);
-  font-weight: 900;
-  color: var(--color-gold);
-  line-height: 1;
-  display: block;
-}
-
-/* Descripción de la estadística */
-.stat__label {
-  font-size: var(--text-xs);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-slate);
-  margin-top: 0.35rem;
-  display: block;
-}
-
-/* ============================================================
-   TOAST / NOTIFICACIÓN
-   Mensaje temporal que aparece en pantalla
-   ============================================================ */
-
-/* Contenedor de toasts — esquina inferior derecha */
-#toast-container {
-  position: fixed;
-  bottom: var(--space-md);
-  right: var(--space-md);
-  z-index: 9999;               /* Siempre encima de todo */
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  pointer-events: none;        /* No bloquea clicks */
-}
-
-/* Toast individual */
-.toast {
-  background: var(--color-surface);
-  border: 1px solid var(--color-gold-dark);
-  border-left: 4px solid var(--color-gold);
-  color: var(--color-cream);
-  padding: 0.875rem 1.25rem;
-  border-radius: var(--radius-md);
-  font-size: var(--text-sm);
-  box-shadow: var(--shadow-card);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  pointer-events: all;
-
-  /* Aparece deslizándose desde la derecha */
-  animation: slideInRight 300ms ease forwards;
-}
-
-/* Toast al desaparecer — clase añadida por JS */
-.toast.removing {
-  animation: slideOutRight 300ms ease forwards;
-}
-
-.toast__icon {
-  font-size: 1.25rem;
-  flex-shrink: 0;
-}
-
-/* ============================================================
-   PIE DE PÁGINA (FOOTER)
-   ============================================================ */
-
-footer {
-  background: var(--color-bg-alt);
-  border-top: 1px solid var(--color-border);
-  padding: var(--space-lg) var(--space-md);
-  text-align: center;
-}
-
-/* Logo del footer */
-.footer__logo {
-  font-family: var(--font-display);
-  font-size: var(--text-2xl);
-  color: var(--color-gold);
-  margin-bottom: var(--space-sm);
-}
-
-/* Texto del footer */
-.footer__text {
-  color: var(--color-slate);
-  font-size: var(--text-sm);
-  letter-spacing: 0.05em;
-}
-
-/* Separador decorativo */
-.footer__divider {
-  width: 60px;
-  height: 1px;
-  background: var(--color-gold-dark);
-  margin: var(--space-sm) auto;
-}
-
-/* ============================================================
-   ANIMACIONES KEYFRAMES
-   Referencia rápida de todas las animaciones disponibles
-   ============================================================ */
-
-/* Pieza que flota suavemente arriba y abajo */
-@keyframes floatPiece {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-8px); }
-}
-
-/* Expansión de la onda ripple en botones */
-@keyframes rippleExpand {
-  to { transform: scale(4); opacity: 0; }
-}
-
-/* Entrada desde abajo con fade */
-@keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Entrada desde la derecha (toast) */
-@keyframes slideInRight {
-  from { opacity: 0; transform: translateX(120%); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
-/* Salida hacia la derecha (toast) */
-@keyframes slideOutRight {
-  from { opacity: 1; transform: translateX(0); }
-  to   { opacity: 0; transform: translateX(120%); }
-}
-
-/* Parpadeo sutil — útil para destacar elementos */
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.6; }
-}
-
-/* Rotación continua */
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-/* ============================================================
-   RESPONSIVE — DISEÑO ADAPTABLE
-   Ajusta el layout para pantallas pequeñas
-   ============================================================ */
-
-/* Tablets (max 900px) */
-@media (max-width: 900px) {
-  /* El hero pasa a una sola columna en tablets */
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-    padding-top: calc(var(--space-lg) + 80px);
-  }
-
-  /* El tablero se centra y reduce */
-  .hero__board-container {
-    order: -1;                  /* El tablero aparece primero en móvil */
-  }
-
-  /* Los botones del hero se centran */
-  .hero__actions {
-    justify-content: center;
-  }
-
-  /* El eyebrow se centra */
-  .hero__eyebrow {
-    justify-content: center;
-  }
-
-  /* La descripción se centra */
-  .hero__description {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-/* Móvil pequeño (max 600px) */
-@media (max-width: 600px) {
-  /* La navbar apila el logo y los links */
-  .navbar__links {
-    display: none;              /* Oculta los links — agrega menú hamburguesa con JS si lo necesitas */
-  }
-
-  /* Reduce el padding de las secciones */
-  .section {
-    padding: var(--space-lg) var(--space-sm);
-  }
-
-  /* Reduce el grid de piezas */
-  .pieces-grid {
-    gap: 0.5rem;
-  }
-
-  /* Botones de pieza más pequeños */
-  .piece-btn {
-    min-width: 70px;
-    padding: 0.75rem 1rem;
-  }
-
-  .piece-btn__symbol {
-    font-size: 2rem;            /* Piezas más pequeñas en móvil */
-  }
-
-  /* Tarjetas ocupan todo el ancho */
-  .cards-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ============================================================
-   UTILIDADES
-   Clases de ayuda reutilizables en todo el HTML
-   ============================================================ */
-
-/* Centrar texto */
-.text-center { text-align: center; }
-
-/* Ocultar visualmente (accesible para lectores de pantalla) */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-}
-
-/* Márgenes de utilidad */
-.mt-sm  { margin-top: var(--space-sm); }
-.mt-md  { margin-top: var(--space-md); }
-.mt-lg  { margin-top: var(--space-lg); }
-.mb-sm  { margin-bottom: var(--space-sm); }
-.mb-md  { margin-bottom: var(--space-md); }
-.mb-lg  { margin-bottom: var(--space-lg); }
-
-/* Texto en color dorado */
-.text-gold { color: var(--color-gold); }
-
-/* Texto secundario */
-.text-muted { color: var(--color-slate); }
-
 /* =========================
-   TABLERO AJEDREZ
+STYLES.CSS COMPLETO
 ========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#111;
+    color:white;
+    line-height:1.6;
+}
+
+#mi-encabezado{
+    background:#1b1b1b;
+    padding:20px;
+    text-align:center;
+    border-bottom:3px solid gold;
+}
+
+.navbar{
+    margin-bottom:20px;
+}
+
+.navbar__links{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.navbar__links a{
+    color:white;
+    text-decoration:none;
+    background:#222;
+    padding:10px 18px;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.navbar__links a:hover{
+    background:gold;
+    color:black;
+}
+
+h1{
+    color:gold;
+    font-size:50px;
+}
+
+h2{
+    color:gold;
+    margin-bottom:20px;
+}
+
+main{
+    padding:40px;
+}
+
+.contenido{
+    background:#1b1b1b;
+    padding:30px;
+    border-radius:15px;
+    margin-bottom:40px;
+}
 
 .hero__board-container{
     display:flex;
@@ -1020,7 +78,6 @@ footer {
 .chess-board{
     display:grid;
     grid-template-columns:repeat(8,70px);
-    width:560px;
     border:4px solid gold;
 }
 
@@ -1046,15 +103,25 @@ footer {
     outline:4px solid red;
 }
 
-/* =========================
-   PIEZAS
-========================= */
+button{
+    background:gold;
+    color:black;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+button:hover{
+    background:white;
+}
 
 .pieces-grid{
     display:flex;
+    justify-content:center;
     flex-wrap:wrap;
     gap:20px;
-    justify-content:center;
     margin-top:30px;
 }
 
@@ -1080,13 +147,9 @@ footer {
 }
 
 .piece-btn__label{
-    margin-top:10px;
     display:block;
+    margin-top:10px;
 }
-
-/* =========================
-   PANEL INFORMACION
-========================= */
 
 .piece-info-panel{
     margin-top:30px;
@@ -1101,15 +164,18 @@ footer {
     display:block;
 }
 
-/* =========================
-   TOAST
-========================= */
+footer{
+    background:#0d0d0d;
+    padding:20px;
+    text-align:center;
+    border-top:2px solid gold;
+    margin-top:40px;
+}
 
 #toast-container{
     position:fixed;
     bottom:20px;
     right:20px;
-    z-index:9999;
 }
 
 .toast{
@@ -1119,16 +185,26 @@ footer {
     margin-top:10px;
     border-left:5px solid gold;
     border-radius:8px;
-    animation:fadeIn 0.3s ease;
 }
 
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateX(20px);
+@media(max-width:768px){
+
+    .chess-board{
+        grid-template-columns:repeat(8,40px);
     }
-    to{
-        opacity:1;
-        transform:translateX(0);
+
+    .chess-board__square{
+        width:40px;
+        height:40px;
+        font-size:24px;
     }
+
+    h1{
+        font-size:35px;
+    }
+
+    main{
+        padding:20px;
+    }
+
 }

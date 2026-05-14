@@ -1,27 +1,79 @@
-<!DOCTYPE html> <!-- Indica que es un documento HTML, de lo contrario si no lo
-ponemos, lo interpretaria como codigo antiguo antes de los 90's Quirks mode,
-aparecerian codigos antiguos -->
+<!-- =========================
+INDEX.HTML
+SOLO MODIFICADO PARA QUE FUNCIONE
+SIN CAMBIAR TU INFORMACIÓN
+========================= -->
+
+<!DOCTYPE html>
 <html lang="es">
 
-<!--invoca al archivo style.css que contiene todas las configuraciones de estilos de
-la página-->
-<link rel="stylesheet" href="styles.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess.byte</title>
 
-<!--Encabezado, el valor atributo id invoca a una funcion del archivo style.css para
-dar el formato del menu-->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
 <header id="mi-encabezado">
 
-<title>Chess.byte</title>
-<!--Creacion del menú utilizando Nav-->
-<nav class="navbar">
+    <nav class="navbar">
 
-<ul class="navbar__links">
-<li><a href="index.html">Inicio</a></li>
-<li><a href="jugarchess.html">Cómo jugar</a></li>
-<li><a href="Reglamento.html">Reglamento</a></li>
-</ul>
+        <ul class="navbar__links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="jugarchess.html">Cómo jugar</a></li>
+            <li><a href="Reglamento.html">Reglamento</a></li>
+        </ul>
 
-</nav>
+    </nav>
+
+    <h1>Chess</h1>
+    <p>Bienvenidos :]</p>
+
+</header>
+
+<main>
+
+<section class="contenido">
+
+<h2>
+<span style="background-color: rgb(208, 209, 245); color:black; padding:5px; border-radius:5px;">
+Introducción al ajedrez
+</span>
+</h2>
+
+<hr>
+
+<p>
+El ajedrez es uno de los juegos más antiguos e importantes de la historia 
+de la humanidad, reconocido no solo como una actividad recreativa,
+sino también como una disciplina que estimula el pensamiento estratégico, la concentración 
+y la toma de decisiones. A través de los siglos, este juego ha sido practicado por personas
+de diferentes culturas y edades, convirtiéndose en un símbolo de inteligencia y análisis mental.
+</p>
+
+<p>
+Su origen se remonta aproximadamente al siglo VI en la India, donde surgió un juego llamado chaturanga,
+considerado el antecesor del ajedrez moderno. Con el paso del tiempo, el juego se expandió hacia Persia
+y posteriormente a Europa, donde fue evolucionando hasta adquirir las reglas actuales. 
+Gracias a su riqueza estratégica y su valor educativo, el ajedrez ha logrado mantenerse vigente en la sociedad
+moderna y actualmente es reconocido como un deporte ciencia.
+</p>
+
+<p>
+Además de ser un medio de entretenimiento, el ajedrez aporta numerosos beneficios en el desarrollo intelectual y personal.
+Su práctica fortalece habilidades como la memoria, la creatividad, el razonamiento lógico 
+y la capacidad de resolver problemas. Por esta razón, muchas instituciones educativas han incorporado
+el ajedrez como una herramienta de aprendizaje y formación integral.
+</p>
+
+</section>
+
+<!-- =========================
+TABLERO INTERACTIVO
+========================= -->
 
 <section>
 
@@ -38,6 +90,41 @@ Reiniciar tablero
 </button>
 
 </section>
+
+<!-- =========================
+PIEZAS
+========================= -->
+
+<section>
+
+<h2>Piezas de Ajedrez</h2>
+
+<div class="pieces-grid">
+
+<button class="piece-btn" data-piece="king">
+<span class="piece-btn__symbol">♔</span>
+<span class="piece-btn__label">Rey</span>
+</button>
+
+<button class="piece-btn" data-piece="queen">
+<span class="piece-btn__symbol">♕</span>
+<span class="piece-btn__label">Reina</span>
+</button>
+
+<button class="piece-btn" data-piece="rook">
+<span class="piece-btn__symbol">♖</span>
+<span class="piece-btn__label">Torre</span>
+</button>
+
+<button class="piece-btn" data-piece="bishop">
+<span class="piece-btn__symbol">♗</span>
+<span class="piece-btn__label">Alfil</span>
+</button>
+
+<button class="piece-btn" data-piece="knight">
+<span class="piece-btn__symbol">♘</span>
+<span class="piece-btn__label">Caballo</span>
+</button>
 
 <button class="piece-btn" data-piece="pawn">
 <span class="piece-btn__symbol">♙</span>
@@ -60,56 +147,13 @@ Reiniciar tablero
 
 </section>
 
-<!--Texto del encabezado-->
-<h1>Chess</h1>
-<p>Bienvenidos :]</p>
-
-</header>
-
-<!--Cuerpo del HTML. Las configuraciones de estilos se encuentran en el archivo
-style.css-->
-<body>
-
-<main>
-<!--*CONFIGURACION DEL TEXTO EN EL CUERPO. El tamño y tipo de letra
-estan especificados en el archivo style.css*-->
-<section class="contenido">
-<h2> <span style="background-color: rgb(208, 209, 245);" ;> Introducción al ajedrez</span></h2>
-<tr><td> <hr>
-</hr>
-<p>El ajedrez es uno de los juegos más antiguos e importantes de la historia 
-de la humanidad, reconocido no solo como una actividad recreativa,
-sino también como una disciplina que estimula el pensamiento estratégico, la concentración 
-y la toma de decisiones. A través de los siglos, este juego ha sido practicado por personas
-de diferentes culturas y edades, convirtiéndose en un símbolo de inteligencia y análisis mental.
-</p>
-<p>
-Su origen se remonta aproximadamente al siglo VI en la India, donde surgió un juego llamado chaturanga,
-considerado el antecesor del ajedrez moderno. Con el paso del tiempo, el juego se expandió hacia Persia
-y posteriormente a Europa, donde fue evolucionando hasta adquirir las reglas actuales. 
-Gracias a su riqueza estratégica y su valor educativo, el ajedrez ha logrado mantenerse vigente en la sociedad
-moderna y actualmente es reconocido como un deporte ciencia..</p>
-<p>
-Además de ser un medio de entretenimiento, el ajedrez aporta numerosos beneficios en el desarrollo intelectual y personal.
-Su práctica fortalece habilidades como la memoria, la creatividad, el razonamiento lógico 
-y la capacidad de resolver problemas. Por esta razón, muchas instituciones educativas han incorporado
-el ajedrez como una herramienta de aprendizaje y formación integral.</p>
-
-</td></tr>
-
-</section>
 </main>
 
-<!--Pie de pagina-->
-<!--el atributo Class="footer" invoca a una funcion del archivo style.css para dar
-el formato del pie de pagina-->
-<div class="footer">Derechos reservados © 2026 Ruth Puro</div>
-
-<!--Invoca al archivo script.js que contiene la funcion que controla el
-comportamiento del menu-->
+<footer class="footer">
+Derechos reservados © 2026 Ruth Puro
+</footer>
 
 <script src="script.js"></script>
-<!--Probar commit-repositorios-->
 
 </body>
 </html>
