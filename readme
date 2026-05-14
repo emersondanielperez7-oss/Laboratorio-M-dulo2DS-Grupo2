@@ -1,0 +1,76 @@
+# Chess Info Website ♟️
+
+Bienvenido a **ChessByte**, una página web informativa dedicada al fascinante mundo del ajedrez. Este proyecto tiene como objetivo compartir información sobre la historia, reglas, estrategias y curiosidades del chess de una manera visual y fácil de entender.
+
+## 🌍 Contenido del sitio
+
+* 📜 Historia del ajedrez
+* ♟️ Reglas básicas del juego
+* 👑 Explicación de las piezas y sus movimientos
+* 🧠 Estrategias y tácticas básicas
+* 🏆 Grandes campeones del ajedrez
+* 🌟 Curiosidades sobre el chess
+* 📱 Diseño responsive para dispositivos móviles
+
+## 🛠️ Tecnologías utilizadas
+
+* HTML5
+* CSS3
+* JavaScript
+
+## 📂 Estructura del proyecto
+
+```bash id="4lqny0"
+chess-info-website/
+│── index.html
+│── style.css
+│── script.js
+│── assets/
+│   ├── images/
+│   └── icons/
+│── README.md
+```
+
+## ⚙️ Instalación
+
+1. Clona este repositorio:
+
+```bash id="cwbrjf"
+git clone https://github.com/usuario/chess-info-website.git
+```
+
+2. Entra a la carpeta del proyecto:
+
+```bash id="t5qek8"
+cd chess-info-website
+```
+
+3. Abre el archivo `index.html` en tu navegador.
+
+## 🎯 Objetivo del proyecto
+
+El objetivo de esta página es ayudar a principiantes y aficionados a aprender más sobre el ajedrez mediante contenido claro, visual e interactivo.
+
+## 📸 Vista previa
+
+Aquí puedes agregar imágenes o capturas de pantalla de la página web.
+
+## 📈 Futuras mejoras
+
+* Agregar animaciones
+* Incorporar un blog de noticias de ajedrez
+* Añadir biografías de jugadores famosos
+* Incluir una línea de tiempo histórica
+* Traducir el sitio a varios idiomas
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Puedes hacer un fork del proyecto y enviar un pull request.
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia MIT.
+
+---
+
+♟️ “Cada partida de ajedrez es una nueva aventura.” — Anatoly Karpov
