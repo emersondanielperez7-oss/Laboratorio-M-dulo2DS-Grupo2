@@ -1,5 +1,5 @@
-<!DOCTYPE html> <!-- Indica que el documento está escrito en HTML5 -->
-<html lang="es"> <!-- Define el idioma de la página -->
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
 
@@ -12,8 +12,8 @@
     <!-- Título que aparece en la pestaña del navegador -->
     <title>Grandes Jugadores del Ajedrez</title>
 
-    <!-- Conecta el archivo CSS externo -->
-    <link rel="stylesheet" href="style.css">
+    <!-- CSS CORREGIDO -->
+    <link rel="stylesheet" href="styles.css">
 
 </head>
 
@@ -23,22 +23,23 @@
     <header id="mi-encabezado">
 
         <!-- Menú de navegación -->
-        <nav>
+        <nav class="navbar">
 
             <!-- Lista del menú -->
-            <ul>
-          
+            <ul class="navbar__links">
+
                 <li><a href="index.html">Inicio</a></li>
-               
+
                 <li><a href="historia.html">Historia</a></li>
 
-                <li><a href="JugarChess.html">Cómo jugar</a></li>
+                <li><a href="jugarchess.html">Cómo jugar</a></li>
 
                 <li><a href="campeones.html">Campeones</a></li>
 
                 <li><a href="about.html">About</a></li>
 
             </ul>
+
         </nav>
 
         <!-- Contenido principal del encabezado -->
@@ -58,11 +59,13 @@
     </header>
 
     <!-- ================= INTRODUCCIÓN ================= -->
-    <section id="introduccion">
+    <main>
+
+    <section class="contenido" id="introduccion">
 
         <!-- Título de la sección -->
         <h2>Historia de los Campeones del Mundo</h2>
-  
+
         <p>
             El ajedrez es uno de los juegos más antiguos e inteligentes del mundo.
             A lo largo de la historia han existido jugadores extraordinarios que
@@ -77,7 +80,7 @@
 
     </section>
 
-    <section id="campeones-historicos">
+    <section class="contenido" id="campeones-historicos">
 
         <h2>Grandes Leyendas del Ajedrez</h2>
 
@@ -136,7 +139,7 @@
     </section>
 
     <!-- ================= JUGADORES ACTUALES ================= -->
-    <section id="jugadores-actuales">
+    <section class="contenido" id="jugadores-actuales">
 
         <!-- Título -->
         <h2>Mejores Jugadores de la Actualidad</h2>
@@ -195,7 +198,7 @@
     </section>
 
     <!-- ================= TORNEOS IMPORTANTES ================= -->
-    <section id="torneos">
+    <section class="contenido" id="torneos">
 
         <!-- Título -->
         <h2>Campeonatos Más Importantes</h2>
@@ -236,13 +239,13 @@
     </section>
 
     <!-- ================= TABLA DE CAMPEONES ================= -->
-    <section id="tabla-campeones">
+    <section class="contenido" id="tabla-campeones">
 
         <!-- Título -->
         <h2>Campeones Mundiales Destacados</h2>
 
         <!-- Tabla de información -->
-        <table border="1">
+        <table>
 
             <!-- Encabezado de la tabla -->
             <thead>
@@ -302,7 +305,7 @@
     </section>
 
     <!-- ================= FRASE FINAL ================= -->
-    <section id="frase-final">
+    <section class="contenido" id="frase-final">
 
         <!-- Título -->
         <h2>El Ajedrez es Arte e Inteligencia</h2>
@@ -314,8 +317,10 @@
 
     </section>
 
+    </main>
+
     <!-- ================= PIE DE PÁGINA ================= -->
-    <footer>
+    <footer class="footer">
 
         <!-- Texto del footer -->
         <p>
@@ -323,6 +328,9 @@
         </p>
 
     </footer>
+
+    <!-- JS CONECTADO -->
+    <script src="script.js"></script>
 
 </body>
 
