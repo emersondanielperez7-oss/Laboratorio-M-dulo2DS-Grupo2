@@ -605,6 +605,8 @@ function generateId(prefix = 'chess') {
   return `${prefix}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
+<script src="script.js"></script>
+
 /* ============================================================
    FIN DEL SCRIPT
    Para agregar nuevas funcionalidades:

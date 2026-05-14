@@ -13,13 +13,52 @@ dar el formato del menu-->
 
 <title>Chess.byte</title>
 <!--Creacion del menú utilizando Nav-->
-<nav>
-<ul>
+<nav class="navbar">
+
+<ul class="navbar__links">
 <li><a href="index.html">Inicio</a></li>
-<li><a href="JugarChess.html">Còmo jugar</a></li>
-<li><a href="about.">Acerca de </a></li>
+<li><a href="jugarchess.html">Cómo jugar</a></li>
+<li><a href="Reglamento.html">Reglamento</a></li>
 </ul>
+
 </nav>
+
+<section>
+
+<h2>Tablero interactivo</h2>
+
+<div class="hero__board-container">
+    <div class="chess-board"></div>
+</div>
+
+<br>
+
+<button id="reset-board">
+Reiniciar tablero
+</button>
+
+</section>
+
+<button class="piece-btn" data-piece="pawn">
+<span class="piece-btn__symbol">♙</span>
+<span class="piece-btn__label">Peón</span>
+</button>
+
+</div>
+
+<div id="piece-info" class="piece-info-panel">
+
+<h3 class="piece-info-panel__name"></h3>
+
+<div class="piece-info-panel__symbol"></div>
+
+<p class="piece-info-panel__description"></p>
+
+<div class="piece-info-panel__value"></div>
+
+</div>
+
+</section>
 
 <!--Texto del encabezado-->
 <h1>Chess</h1>

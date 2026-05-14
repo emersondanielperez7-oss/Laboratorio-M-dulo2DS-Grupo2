@@ -1006,3 +1006,129 @@ footer {
 
 /* Texto secundario */
 .text-muted { color: var(--color-slate); }
+
+/* =========================
+   TABLERO AJEDREZ
+========================= */
+
+.hero__board-container{
+    display:flex;
+    justify-content:center;
+    margin-top:30px;
+}
+
+.chess-board{
+    display:grid;
+    grid-template-columns:repeat(8,70px);
+    width:560px;
+    border:4px solid gold;
+}
+
+.chess-board__square{
+    width:70px;
+    height:70px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:40px;
+    cursor:pointer;
+}
+
+.light{
+    background:#f0d9b5;
+}
+
+.dark{
+    background:#b58863;
+}
+
+.selected{
+    outline:4px solid red;
+}
+
+/* =========================
+   PIEZAS
+========================= */
+
+.pieces-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+    margin-top:30px;
+}
+
+.piece-btn{
+    background:#1e1e1e;
+    border:2px solid gold;
+    color:white;
+    padding:20px;
+    width:120px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.piece-btn:hover{
+    transform:scale(1.05);
+    background:gold;
+    color:black;
+}
+
+.piece-btn__symbol{
+    font-size:40px;
+    display:block;
+}
+
+.piece-btn__label{
+    margin-top:10px;
+    display:block;
+}
+
+/* =========================
+   PANEL INFORMACION
+========================= */
+
+.piece-info-panel{
+    margin-top:30px;
+    background:#1b1b1b;
+    padding:25px;
+    border-radius:15px;
+    display:none;
+    border:2px solid gold;
+}
+
+.piece-info-panel.visible{
+    display:block;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+#toast-container{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    z-index:9999;
+}
+
+.toast{
+    background:#222;
+    color:white;
+    padding:15px 20px;
+    margin-top:10px;
+    border-left:5px solid gold;
+    border-radius:8px;
+    animation:fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateX(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
