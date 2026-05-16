@@ -687,8 +687,10 @@ const datosCuriosos = [
 
 // Cambiamos el 0 por un número aleatorio para empezar
 let indiceActual = Math.floor(Math.random() * datosCuriosos.length);
+let intervaloDatos;
 
 function mostrarDato() {
+    const factText = document.getElementById('fact-text');
     if (!factText) return; // Si no existe el elemento en la página, no hace nada
 
     // Efecto de desvanecimiento
@@ -710,20 +712,23 @@ function mostrarDato() {
 }
 
 function iniciarDatos() {
+    const factText = document.getElementById('fact-text');
+    const nextFactBtn = document.getElementById('next-fact-btn');
+
     if (!factText) return;
     
     mostrarDato(); // Mostrar el primero
     intervaloDatos = setInterval(mostrarDato, 15000); // Cambiar cada 15 segundos
+
+    // Evento del botón manual
+    if (nextFactBtn) {
+        nextFactBtn.addEventListener('click', () => {
+            clearInterval(intervaloDatos); // Detenemos el auto-play
+            mostrarDato(); // Mostramos el siguiente
+            intervaloDatos = setInterval(mostrarDato, 15000); // Reiniciamos el auto-play
+        });
+    }
 }
 
-// Evento del botón manual
-if (nextFactBtn) {
-    nextFactBtn.addEventListener('click', () => {
-        clearInterval(intervaloDatos); // Detenemos el auto-play
-        mostrarDato(); // Mostramos el siguiente
-        intervaloDatos = setInterval(mostrarDato, 15000); // Reiniciamos el auto-play
-    });
-}
-
-// Lo iniciamos junto con el DOMContentLoaded de tu código
-document.addEventListener('DOMContentLoaded', iniciarDatos);
+// Ejecutamos la función directamente en lugar de esperar al DOMContentLoaded
+iniciarDatos();
