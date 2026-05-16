@@ -685,10 +685,8 @@ const datosCuriosos = [
     "El ajedrez ha evolucionado más en los últimos 20 años gracias a los motores de IA que en los 200 años anteriores."
 ];
 
-let indiceActual = 0;
-let intervaloDatos;
-const factText = document.getElementById('fact-text');
-const nextFactBtn = document.getElementById('next-fact-btn');
+// Cambiamos el 0 por un número aleatorio para empezar
+let indiceActual = Math.floor(Math.random() * datosCuriosos.length);
 
 function mostrarDato() {
     if (!factText) return; // Si no existe el elemento en la página, no hace nada
@@ -700,7 +698,14 @@ function mostrarDato() {
         factText.textContent = datosCuriosos[indiceActual];
         factText.classList.remove('fade-out');
         
-        indiceActual = (indiceActual + 1) % datosCuriosos.length;
+        // Elegimos un dato aleatorio para la próxima vez, evitando que se repita el mismo
+        let nuevoIndice;
+        do {
+            nuevoIndice = Math.floor(Math.random() * datosCuriosos.length);
+        } while (nuevoIndice === indiceActual && datosCuriosos.length > 1);
+        
+        indiceActual = nuevoIndice;
+        
     }, 400); // Tiempo que tarda en ocultarse el texto antes de cambiarlo
 }
 
