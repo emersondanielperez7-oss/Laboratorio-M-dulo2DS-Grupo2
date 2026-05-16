@@ -217,3 +217,56 @@ document.querySelectorAll('a[href]').forEach(link => {
     });
 
 });
+
+// =========================
+// DATO CURIOSO DINÁMICO
+// =========================
+
+const datosCuriosos = [
+    "La partida de ajedrez más larga registrada duró 269 movimientos y terminó en tablas tras 20 horas de juego.",
+    "El número de posibles partidas de ajedrez es mayor que el número de átomos en el universo observable.",
+    "El 'Mate del Pastor' es una de las trampas más antiguas, permitiendo ganar en solo 4 jugadas.",
+    "En el ajedrez medieval, la Reina solo podía moverse una casilla en diagonal. Fue en el siglo XV cuando obtuvo su gran poder.",
+    "El primer campeón del mundo oficial de ajedrez fue Wilhelm Steinitz en 1886.",
+    "La palabra 'Jaque Mate' proviene del persa 'Shah Mat', que significa 'El rey está indefenso'.",
+    "El tablero de ajedrez actual de 64 casillas se estandarizó en Europa durante el siglo XV.",
+    "Un computadora tardó solo 4 horas en aprender a jugar al ajedrez a nivel de Gran Maestro sin conocimiento previo (AlphaZero)."
+];
+
+let indiceActual = 0;
+let intervaloDatos;
+const factText = document.getElementById('fact-text');
+const nextFactBtn = document.getElementById('next-fact-btn');
+
+function mostrarDato() {
+    if (!factText) return; // Si no existe el elemento en la página, no hace nada
+
+    // Efecto de desvanecimiento
+    factText.classList.add('fade-out');
+
+    setTimeout(() => {
+        factText.textContent = datosCuriosos[indiceActual];
+        factText.classList.remove('fade-out');
+        
+        indiceActual = (indiceActual + 1) % datosCuriosos.length;
+    }, 400); // Tiempo que tarda en ocultarse el texto antes de cambiarlo
+}
+
+function iniciarDatos() {
+    if (!factText) return;
+    
+    mostrarDato(); // Mostrar el primero
+    intervaloDatos = setInterval(mostrarDato, 6000); // Cambiar cada 6 segundos
+}
+
+// Evento del botón manual
+if (nextFactBtn) {
+    nextFactBtn.addEventListener('click', () => {
+        clearInterval(intervaloDatos); // Detenemos el auto-play
+        mostrarDato(); // Mostramos el siguiente
+        intervaloDatos = setInterval(mostrarDato, 6000); // Reiniciamos el auto-play
+    });
+}
+
+// Lo iniciamos junto con el DOMContentLoaded de tu código
+document.addEventListener('DOMContentLoaded', iniciarDatos);

@@ -322,3 +322,83 @@ body.page-leave {
     }
 
 }
+
+/* =========================
+DATO CURIOSO DINÁMICO
+========================= */
+
+.chess-fact-dynamic{
+    background:#1b1b1b;
+    padding:30px;
+    border-radius:15px;
+    margin-top:40px;
+    border:2px solid gold;
+    text-align:center;
+    max-width:700px; /* Para que no sea tan ancho en pantallas grandes */
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.chess-fact-dynamic__header{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.chess-fact-dynamic__icon{
+    font-size:35px;
+}
+
+.chess-fact-dynamic__header h2{
+    margin:0; /* Quitamos el margin por defecto del h2 */
+    font-size:24px;
+}
+
+.chess-fact-dynamic__text{
+    font-size:18px;
+    color:#ccc;
+    min-height:60px; /* Esto evita que el cuadro salte cuando el texto es más corto o largo */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: opacity 0.4s ease; /* Animación suave al cambiar */
+}
+
+.chess-fact-dynamic__text.fade-out{
+    opacity:0; /* Clase que oculta el texto */
+}
+
+.chess-fact-dynamic__btn{
+    margin-top:20px;
+    background:transparent;
+    border:2px solid gold;
+    color:gold;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.chess-fact-dynamic__btn:hover{
+    background:gold;
+    color:black;
+    transform:scale(1.05);
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .chess-fact-dynamic{
+        padding:20px;
+        margin-top:30px;
+    }
+    .chess-fact-dynamic__header h2{
+        font-size:20px;
+    }
+    .chess-fact-dynamic__text{
+        font-size:16px;
+    }
+}
